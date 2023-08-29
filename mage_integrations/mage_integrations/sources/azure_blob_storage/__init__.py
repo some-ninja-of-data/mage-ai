@@ -47,7 +47,7 @@ class AzureBlobStorage(Source):
             name = b['name']
             parts = name.split('/')
             stream_id = '_'.join(parts[:-1])
-
+            
             df = self.__build_df(name)
 
             properties = {}
@@ -111,7 +111,7 @@ class AzureBlobStorage(Source):
         **kwargs,
     ) -> Generator[List[Dict], None, None]:
         client = self.build_client()
-
+        self.col_names = kwargs.get('column_names_in_file',[])
         container_client = client.get_container_client(self.container_name)
 
         for b in container_client.list_blobs(self.prefix):
@@ -143,6 +143,8 @@ class AzureBlobStorage(Source):
             df = pd.read_parquet(buffer)
         elif '.csv' in key:
             df = pd.read_csv(buffer)
+        elif '.txt' in key:
+            df = pd.read_csv(buffer, sep="\t", names=self.col_names)
         return df
 
 
