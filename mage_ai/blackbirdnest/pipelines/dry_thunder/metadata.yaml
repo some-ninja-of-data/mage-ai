@@ -1,0 +1,35 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: delicate glitter
+  retry_config: null
+  status: updated
+  type: data_loader
+  upstream_blocks: []
+  uuid: delicate_glitter
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2023-09-01 08:40:13.631057+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: dry thunder
+notification_config: {}
+retry_config: {}
+run_pipeline_in_one_process: false
+spark_config: {}
+tags: []
+type: python
+updated_at: '2023-09-01 13:34:09'
+uuid: dry_thunder
+widgets: []

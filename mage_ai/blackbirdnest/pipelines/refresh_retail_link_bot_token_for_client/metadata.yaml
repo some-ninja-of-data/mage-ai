@@ -1,0 +1,138 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - update_rl_bot_token
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: get-tower
+  retry_config: null
+  status: updated
+  type: data_loader
+  upstream_blocks: []
+  uuid: get_tower
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_path: null
+  downstream_blocks:
+  - reset_tower_rl_bot_token
+  - atlas_update_token
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: update_rl_bot_token
+  retry_config: null
+  status: executed
+  type: transformer
+  upstream_blocks:
+  - get_tower
+  uuid: update_rl_bot_token
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: reset_tower_rl_bot_token
+  retry_config: null
+  status: failed
+  type: transformer
+  upstream_blocks:
+  - update_rl_bot_token
+  uuid: reset_tower_rl_bot_token
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_path: null
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: atlas_update_token
+  retry_config: null
+  status: updated
+  type: transformer
+  upstream_blocks:
+  - update_rl_bot_token
+  uuid: atlas_update_token
+callbacks: []
+concurrency_config: {}
+conditionals:
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: error_key_in_response
+  retry_config: null
+  status: updated
+  type: conditional
+  upstream_blocks:
+  - update_rl_bot_token
+  - reset_tower_rl_bot_token
+  - atlas_update_token
+  uuid: error_key_in_response
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: check_if_atlas_account
+  retry_config: null
+  status: updated
+  type: conditional
+  upstream_blocks:
+  - atlas_update_token
+  uuid: check_if_atlas_account
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: check_if_bot_account
+  retry_config: null
+  status: updated
+  type: conditional
+  upstream_blocks:
+  - update_rl_bot_token
+  uuid: check_if_bot_account
+created_at: '2023-09-14 11:29:28.018933+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: refresh retail link bot token for client
+notification_config: {}
+retry_config: {}
+run_pipeline_in_one_process: false
+spark_config: {}
+tags: []
+type: python
+updated_at: '2023-09-21 12:34:35'
+uuid: refresh_retail_link_bot_token_for_client
+variables:
+  atlas_pass: Th1sNinj@!!!31007!!!
+  atlas_user: sean.r.nicholas@accenture.com
+  debug_mode: true
+  scope: retail_link
+  service_name: retail_link
+widgets: []

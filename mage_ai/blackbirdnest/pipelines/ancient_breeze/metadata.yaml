@@ -1,0 +1,77 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dynamic: true
+    file_path: null
+  downstream_blocks:
+  - map_creds
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: tower
+  retry_config: null
+  status: updated
+  type: data_loader
+  upstream_blocks: []
+  uuid: tower
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_path: null
+  downstream_blocks:
+  - spring_smoke
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: map_creds
+  retry_config: null
+  status: executed
+  type: transformer
+  upstream_blocks:
+  - tower
+  uuid: map_creds
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: spring smoke
+  retry_config: null
+  status: failed
+  type: transformer
+  upstream_blocks:
+  - map_creds
+  uuid: spring_smoke
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2023-08-28 18:41:14.072840+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: ancient breeze
+notification_config: {}
+retry_config: {}
+run_pipeline_in_one_process: false
+spark_config: {}
+tags: []
+type: python
+updated_at: '2023-09-18 18:05:08'
+uuid: ancient_breeze
+variables:
+  cred:
+    password: TtOXpV7D
+    sourcefolderpathname: Pretty Litter
+    user_id: david@prettylitter.com
+  scope: high_radius
+  service_name: high_radius
+widgets: []
